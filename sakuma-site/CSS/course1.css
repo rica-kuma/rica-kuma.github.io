@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+/*============================================
+section 共通クラス
+============================================*/
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height:1.5;
+   }
+   
+   .container{
+       width: 90%;
+       max-width: 980px;
+       margin: auto;
+       text-align: center;
+   }
+
+   .clear::after{
+       content: "";
+       clear:both;
+       display: block;
+   }
+
+   h2{
+       font-weight: bold;
+       font-size: 20px;
+   }
+   
+   a{
+       text-decoration: none;
+   }
+
+   a :hover{
+       opacity: 0.8;
+   }
+
+
+/*============================================
+header
+============================================*/
+header{
+    background-color:rgb(223, 238, 223);
+    padding: 25px 0;
+    width: 100%;
+}
+
+.header-left{
+    float: left;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.header-right{ 
+    float: right;
+
+}
+
+.header-nav-item{
+    list-style: none;
+    display: inline-flex;
+    margin-left: 15px;
+}
+
+.header-nav-item a{
+    line-height: 42px;
+}
+
+/*============================================
+course1
+============================================*/
+
+.course1{
+    margin: auto;
+    padding: 100px 0 0 0;
+}
+
+.course1-title{
+    padding-bottom: 20px;
+}
+ img{
+    max-width: 100%;
+
+}
+
+.course1-text{
+    margin: 20px 0;
+    padding-bottom: 20px;
+}
+
+
+
+/*============================================
+footer
+============================================*/
+
+footer{
+    padding: 15px;
+}
+
+.footer-title{
+    float:right;
+}
+
+/*============================================
+スマートフォン対応
+============================================*/
+@media only screen and (max-width:767px){
+
+/*============================================
+media header
+============================================*/
+.header-left{
+    float: none;
+}
+.header-right{
+    float: none;
+}
+
+/*============================================
+media footer
+============================================*/
+.footer-title{
+    float: none;
+}
+
+}

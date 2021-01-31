@@ -1,0 +1,295 @@
+/*============================================
+要件定義等
+============================================*/
+$title-color:rgb(223, 238, 223);
+$font-base-size:20px;
+$padding-base-height:60px;
+
+
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー 値
+ 'sm': 'screen and (max-width: 576px)',
+ 'md': 'screen and (max-width: 768px)',
+ 'lg': 'screen and (max-width: 992px)',
+ 'xl': 'screen and (max-width: 1200px)'
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+
+
+/*============================================
+section 共通クラス
+============================================*/
+
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height:1.5;
+   }
+   
+   .container{
+       width: 90%;
+       max-width: 980px;
+       margin: auto;
+       text-align: center;
+   }
+
+   .clear::after{
+       content: "";
+       clear:both;
+       display: block;
+   }
+
+   h2{
+       font-weight: bold;
+       font-size: $font-base-size;
+   }
+   
+   a{
+       text-decoration: none;
+   }
+
+   a :hover{
+       opacity: 0.8;
+   }
+
+   .button1{
+    color: #333;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1px solid #333;
+    text-decoration: none;
+    border-radius: 15PX;
+
+}
+/*============================================
+header
+============================================*/
+header{
+    background-color:$title-color;
+    padding: 25px 0;
+    width: 100%;
+    }
+
+
+.header-left{
+        float: left;
+        font-weight: bold;
+        font-size: $font-base-size + 8px;
+        @include mq(sm){
+            float: none;
+        }
+    
+}
+
+
+ .header-right{ 
+        float: right;
+        @include mq(sm){
+            float: none;
+        }
+    
+
+}
+
+
+.header-nav-item{
+    list-style: none;
+    display: inline-flex;
+    margin-left: 15px;
+
+
+a {
+    line-height: 42px;
+
+   &:hover{
+       color: rgb(31, 77, 61);
+   } 
+}
+}
+/*============================================
+top
+============================================*/
+.top{
+    background-image: url(../img/sample.jpeg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+}
+
+.top-title{
+    padding: 150px;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: $font-base-size + 5px;
+}
+
+/*============================================
+about
+============================================*/
+.about{
+    padding: $padding-base-height;
+}
+.about-title{
+    padding-bottom:20px;
+}
+
+
+
+/*============================================
+course
+============================================*/
+.course{
+    background-color:$title-color;
+    padding-top: $padding-base-height;
+    padding-bottom: $padding-base-height;
+}
+.course-wrapper{
+    display: flex;
+    justify-content: space-between;
+    @include mq(sm){
+        flex-wrap: wrap;
+    }
+}
+.course-title{
+    padding-bottom: 30px;
+}
+img{
+    max-width: 100%;
+    padding-bottom: 5px;
+}
+.course-item{
+    width: 30%;
+    font-size: $font-base-size;
+    @include mq(sm){
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    
+
+  a{
+      @extend.button1;
+      &:hover{
+          color: rgb(55, 145, 113);
+      }
+  }  
+}
+
+/*============================================
+contact
+============================================*/
+.contact{
+    padding: $padding-base-height;
+}
+.contact-title{
+    padding-bottom: 5px;
+}
+
+.contact-form{
+    padding-top: 30px;
+}
+
+form{
+    padding-bottom: 10px;
+}
+/*============================================
+access
+============================================*/
+.access{
+    padding: $padding-base-height;
+   iframe{
+       max-width: 100%;
+    @include mq(sm){
+        max-width: 100%;
+        text-align:center;
+    }
+}
+}
+
+.access-title{
+    padding-bottom: 15px;
+}
+
+/*============================================
+profile
+============================================*/
+.profile{
+    background-color:$title-color;
+    padding-top:$padding-base-height;
+    padding-bottom: $padding-base-height;
+}
+
+.profile-title{
+    padding-bottom: 50px;
+}
+.profile-wrapper{
+    display: flex;
+    justify-content: space-between;
+    @include mq(sm){
+        flex-wrap: wrap;    
+    }
+    
+}
+.profile-left{
+    width: 50%;
+    @include mq(sm){
+        width: 100%;
+    }
+    
+}
+
+.profile-right{
+    width: 30%;
+    @include mq(sm){
+        width: 100%;
+    }
+}
+img{
+    max-width: 100%;
+}
+
+/*============================================
+footer
+============================================*/
+
+footer{
+    padding: 15px;
+}
+
+.footer-title{
+    float:right;
+
+
+@include mq(sm){
+    float: none;
+}
+}
+/*============================================
+page-top
+============================================*/
+
+#page-top {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+
+    a {
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+    &:hover {
+    background-color: #666;
+    text-decoration:none;
+}
+}
